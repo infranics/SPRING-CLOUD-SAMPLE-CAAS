@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-config-deployment
+  labels:
+    app: cloud-config
+  namespace: paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-config
+  template:
+    metadata:
+      labels:
+        app: cloud-config
+    spec:
+      containers:
+      - name: cloud-config
+        image: paastacp/cloud-config:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8004
+        env:
+        - name: uri
+          value: https://github.com/PaaS-TA/SPRING-CLOUD-SAMPLE-CONFIG.git
+        - name: username
+          value: suslmk-lee
+        - name: password
+          value: 
+      imagePullSecrets:
+        - name: cp-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud-config-deployment
+  labels:
+    app: cloud-config
+  namespace: paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas
+spec:
+  ports:
+  - nodePort: 31004
+    port: 8004
+    protocol: TCP
+    targetPort: 8004
+  selector:
+    app: cloud-config
+  type: NodePort
