@@ -1,0 +1,26 @@
+spring:
+  application:
+      name: CloudUi
+  thymeleaf:
+    prefix: /WEB-INF/views/
+    suffix: .html
+  redis:
+      host: ${redis-domain}
+      password: ${redis-password}
+      port: ${redis-port}
+      timeout: 2100
+
+server:
+  port: ${PORT:8080}
+
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://127.0.0.1:2221/eureka/
+      #dafaultZone: http://CloudEureka-edu.paas.iotmeca.com/eureka/
+      defaultZone: ${eureka-domain}:2221/eureka/
+  instance:
+    hostname: ${spring.cloud.client.hostname}
+    #hostname: localhost
