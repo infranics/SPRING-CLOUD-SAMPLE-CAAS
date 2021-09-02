@@ -4,7 +4,7 @@ metadata:
   name: cloud-config-deployment
   labels:
     app: cloud-config
-  namespace: paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas
+  namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
 spec:
   replicas: 1
   selector:
@@ -17,19 +17,13 @@ spec:
     spec:
       containers:
       - name: cloud-config
-        image: paastacp/cloud-config:latest
+        image: infranics/cloud_config:0.1
         imagePullPolicy: Always
         ports:
         - containerPort: 8004
         env:
         - name: uri
-          value: https://github.com/PaaS-TA/SPRING-CLOUD-SAMPLE-CONFIG.git
-        - name: username
-          value: suslmk-lee
-        - name: password
-          value: 
-      imagePullSecrets:
-        - name: cp-secret
+          value: https://github.com/infranics/SPRING-CLOUD-SAMPLE-CONFIG.git
 ---
 apiVersion: v1
 kind: Service
@@ -37,7 +31,7 @@ metadata:
   name: cloud-config-deployment
   labels:
     app: cloud-config
-  namespace: paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas
+  namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
 spec:
   ports:
   - nodePort: 31004

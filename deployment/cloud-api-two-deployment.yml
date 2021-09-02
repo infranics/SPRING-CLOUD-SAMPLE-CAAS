@@ -26,8 +26,8 @@ spec:
           value: cloud-config-deployment.paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas.svc.cluster.local
         - name: eureka-domain
           value: cloud-eureka-deployment.paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas.svc.cluster.local
-      imagePullSecrets:
-        - name: cp-secret
+        - name: SPRING_CLOUD_CLIENT_HOSTNAME
+          value: cloud-api-two-deployment.paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas.svc.cluster.local
 ---
 apiVersion: v1
 kind: Service

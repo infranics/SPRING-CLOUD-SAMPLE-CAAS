@@ -4,7 +4,7 @@ metadata:
   name: cloud-admin-deployment
   labels:
     app: cloud-admin
-  namespace: paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas
+  namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
 spec:
   replicas: 1
   selector:
@@ -17,17 +17,17 @@ spec:
     spec:
       containers:
       - name: cloud-admin
-        image: paastacp/cloud-admin:latest
+        image: paastacp/cloud-admin
         imagePullPolicy: Always
         ports:
         - containerPort: 2223
         env:
         - name: config-domain
-          value: cloud-config-deployment.paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas.svc.cluster.local
+          value: cloud-config-deployment.paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas.svc.cluster.local
         - name: eureka-domain
-          value: cloud-eureka-deployment.paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas.svc.cluster.local
-      imagePullSecrets:
-        - name: cp-secret
+          value: cloud-eureka-deployment.paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas.svc.cluster.local
+        - name: SPRING_CLOUD_CLIENT_HOSTNAME
+          value: cloud-admin-deployment.paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas.svc.cluster.local
 ---
 apiVersion: v1
 kind: Service
@@ -35,7 +35,7 @@ metadata:
   name: cloud-admin-deployment
   labels:
     app: cloud-admin
-  namespace: paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas
+  namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
 spec:
   ports:
   - nodePort: 32223
