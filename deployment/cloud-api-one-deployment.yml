@@ -28,6 +28,10 @@ spec:
           value: cloud-eureka-deployment.paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas.svc.cluster.local
         - name: SPRING_CLOUD_CLIENT_HOSTNAME
           value: cloud-api-one-deployment.paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas.svc.cluster.local
+        resources:
+          limits:
+            cpu: 150m
+            memory: 300Mi
 ---
 apiVersion: v1
 kind: Service

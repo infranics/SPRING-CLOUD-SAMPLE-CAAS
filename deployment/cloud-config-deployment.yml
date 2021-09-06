@@ -24,6 +24,10 @@ spec:
         env:
         - name: uri
           value: https://github.com/infranics/SPRING-CLOUD-SAMPLE-CONFIG.git
+        resources:
+          limits:
+            cpu: 150m
+            memory: 300Mi
 ---
 apiVersion: v1
 kind: Service
