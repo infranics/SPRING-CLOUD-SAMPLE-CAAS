@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: cloud-api-two
-        image: paastacp/cloud-api-two:latest
+        image: infranics/cloud_api_two:0.1
         imagePullPolicy: Always
         ports:
         - containerPort: 2225
@@ -42,8 +42,7 @@ metadata:
   namespace: paas-30d87e54-269e-4c6f-871c-19dfba7eeec9-caas
 spec:
   ports:
-  - nodePort: 32225
-    port: 2225
+  - port: 2225
     protocol: TCP
     targetPort: 2225
   selector:

@@ -38,8 +38,7 @@ metadata:
   namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
 spec:
   ports:
-  - nodePort: 31004
-    port: 8004
+  - port: 8004
     protocol: TCP
     targetPort: 8004
   selector:

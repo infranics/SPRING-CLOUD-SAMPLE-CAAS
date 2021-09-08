@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: cloud-admin
-        image: paastacp/cloud-admin
+        image: infranics/cloud_admin:0.1
         imagePullPolicy: Always
         ports:
         - containerPort: 2223
@@ -42,8 +42,7 @@ metadata:
   namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
 spec:
   ports:
-  - nodePort: 32223
-    port: 2223
+  - port: 2223
     protocol: TCP
     targetPort: 2223
   selector:

@@ -42,8 +42,7 @@ metadata:
   namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
 spec:
   ports:
-  - nodePort: 32080
-    port: 8080
+  - port: 8080
     protocol: TCP
     targetPort: 8080
   selector:

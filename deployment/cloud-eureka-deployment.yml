@@ -40,8 +40,7 @@ metadata:
   namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
 spec:
   ports:
-  - nodePort: 32221
-    port: 2221
+  - port: 2221
     protocol: TCP
     targetPort: 2221
   selector:
