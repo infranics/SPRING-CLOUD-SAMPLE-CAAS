@@ -5,13 +5,9 @@ spring:
     config:
       server:
         git:
-#          uri:/Users/swmoon/Dev/Source/Config/SPRING-CLOUD-SAMPLE-CONFIG
           uri: ${uri}
-          username: ${username}
-          password: ${password}
-#          basedir: target/config
+                #          uri: https://github.com/PaaS-TA/SPRING-CLOUD-SAMPLE-CONFIG.git
           force-pull: true
-
 
 server:
   port: ${PORT:8004}

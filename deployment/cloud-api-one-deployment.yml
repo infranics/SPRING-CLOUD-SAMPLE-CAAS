@@ -4,7 +4,7 @@ metadata:
   name: cloud-api-one-deployment
   labels:
     app: cloud-api-one
-  namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
+  namespace: paas-0a9411c7-bf40-4b2f-9dcc-1d5acf24096e-caas 
 spec:
   replicas: 1
   selector:
@@ -17,21 +17,21 @@ spec:
     spec:
       containers:
       - name: cloud-api-one
-        image: infranics/cloud-api-one:0.1
+        image: syban/cloud-api-one:1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 2224
         env:
         - name: config-domain
-          value: cloud-config-deployment.paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas.svc.cluster.local
+          value: cloud-config-deployment.paas-0a9411c7-bf40-4b2f-9dcc-1d5acf24096e-caas.svc.cluster.local
         - name: eureka-domain
-          value: cloud-eureka-deployment.paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas.svc.cluster.local
+          value: cloud-eureka-deployment.paas-0a9411c7-bf40-4b2f-9dcc-1d5acf24096e-caas.svc.cluster.local
         - name: SPRING_CLOUD_CLIENT_HOSTNAME
-          value: cloud-api-one-deployment.paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas.svc.cluster.local
+          value: cloud-api-one-deployment.paas-0a9411c7-bf40-4b2f-9dcc-1d5acf24096e-caas.svc.cluster.local
         resources:
           limits:
-            cpu: 150m
-            memory: 300Mi
+            cpu: 300m
+            memory: 750Mi
 ---
 apiVersion: v1
 kind: Service
@@ -39,7 +39,7 @@ metadata:
   name: cloud-api-one-deployment
   labels:
     app: cloud-api-one
-  namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
+  namespace: paas-0a9411c7-bf40-4b2f-9dcc-1d5acf24096e-caas 
 spec:
   ports:
   - port: 2224

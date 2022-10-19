@@ -4,7 +4,7 @@ metadata:
   name: cloud-config-deployment
   labels:
     app: cloud-config
-  namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
+  namespace: paas-0a9411c7-bf40-4b2f-9dcc-1d5acf24096e-caas 
 spec:
   replicas: 1
   selector:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: cloud-config
-        image: infranics/cloud_config:0.1
+        image: syban/cloud-config:1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8004
@@ -26,8 +26,8 @@ spec:
           value: https://github.com/infranics/SPRING-CLOUD-SAMPLE-CONFIG.git
         resources:
           limits:
-            cpu: 150m
-            memory: 300Mi
+            cpu: 250m
+            memory: 500Mi
 ---
 apiVersion: v1
 kind: Service
@@ -35,7 +35,7 @@ metadata:
   name: cloud-config-deployment
   labels:
     app: cloud-config
-  namespace: paas-e91b5f71-661c-4d4c-b136-571036eb0a31-caas
+  namespace: paas-0a9411c7-bf40-4b2f-9dcc-1d5acf24096e-caas 
 spec:
   ports:
   - port: 8004
